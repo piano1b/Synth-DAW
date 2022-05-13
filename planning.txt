@@ -1,0 +1,18 @@
+Homepage ---> Instruments ---> Record and Save Audio
+                    Piano 
+                    Synths
+                        1 
+                        2 
+                        3 
+                    Violin
+                    Guitar
+                    Voice
+                    Drums/Beats
+                    Horns 
+
+Synths 
+    Use audacity to change piano note values 
+
+Sources 
+https://medium.com/@bryanjenningz/how-to-record-and-play-audio-in-javascript-faa1b2b3e49b (Recording)
+https://www.perfectcircuit.com/signal/difference-between-waveforms (Sound Waves)

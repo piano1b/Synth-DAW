@@ -1,0 +1,30 @@
+Name: Justin Bright 
+ISOM 356 Documentation 
+Insomniac Synths 
+
+Introduction and Vision (and how it changed)
+Hello reader and welcome to Insomnaic Synths. The purpose of this application is to have the user play a variety of synths for musical expression. 
+The vision for this project originally was to create synths, drums, strings, horns, loops, and drums for a full DAW experience. However, the programming for some of these instruments were impractical for CSS/ design reasons or I simply did not having good audio files for those ideas to fully work. 
+Instead, the design for this DAW (digital audio workstation) was refocused to synths with the addition of a soundboard to add extra variety. 
+A recording feature was also originally planned and did exist in a form in previous drafts. However, it was removed due to how files were (or weren't) saved which caused some issues. The Javascript code for this was annoying as well with work involving that I later found would be easier through an API. 
+One challenge I faced was having the key play again while it was already active. This was fixed through just changing how keys were activated through the program.
+Near the end of the project, I decided to add a back button for each of the synths for better maneuverability
+
+Insomnaic Daws 
+To start, lets go to the homepage. The homepage has a list of instruments to chose from. Click on one of the instruments tabs to begin your journey. 
+We have a full set piano, a soundboard, and three synths created using Audacity. You can either touch the keys with your mouse or use your keyboard which has keys mapped to certain piano keys. 
+Their is an instructions page which explains how to use the synths for the user. 
+
+Synth Creation 
+The music files were found online and chopped for the piano version using Audacity, an audio editing software. I had this idea ever since the creation of the project sine Audacity is #1 in my book for audio editing and its free.
+This editing was similairly done for the sounds for the soundboard. 
+For the synths, the piano keys were edited through changing the soundwaves. I used square, sawtooth, and sine waves to create these synths. I used either a logarithmic or linear growth to these soundwaves for unique effects. 
+
+Coding and Growth 
+I used the Javascript information we learned in class (arrow functions, const variables, lists etc.). I added comments to my Javascript code for the piano which carries on to the rest of the synths. Essentially, I created a list of notes mapped to keys, created a listener to detect when the keys are clicked so that it will play audio. Keys will enter an active state until the audio is finished in which cased the key becomes inactive. 
+However, Javascript would defintely not be enough. Therefore, I used CSS and HTML for the design. 
+I believe that my use of Javscript in this project helped reinforce the ideas we learned in class. It was a bit hard to work through it, but I managed.  
+
+Overall 
+I like this project and you should like it to.
+

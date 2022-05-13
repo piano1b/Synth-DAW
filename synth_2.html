@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Synth 1</title> 
+
+  <style>  
+  *, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #143F6B;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.piano {
+  display: flex;
+}
+
+.key {
+  height: calc(var(--width) * 4);
+  width: var(--width);
+}
+
+.white {
+  --width: 100px;
+  background-color: orangered;
+  border: 1px solid #333;
+}
+
+.white.active {
+  background-color: #CCC;
+}
+
+.black {
+  --width: 60px;
+  background-color: black;
+  margin-left: calc(var(--width) / -2);
+  margin-right: calc(var(--width) / -2);
+  z-index: 2;
+}
+
+.black.active {
+  background-color: #333;
+}
+
+
+</style> 
+
+</head>
+
+
+<body>
+  <div class="piano">
+    <div data-note="C" class="key white"></div>
+    <div data-note="Db" class="key black"></div>
+    <div data-note="D" class="key white"></div>
+    <div data-note="Eb" class="key black"></div>
+    <div data-note="E" class="key white"></div>
+    <div data-note="F" class="key white"></div>
+    <div data-note="Gb" class="key black"></div>
+    <div data-note="G" class="key white"></div>
+    <div data-note="Ab" class="key black"></div>
+    <div data-note="A" class="key white"></div>
+    <div data-note="Bb" class="key black"></div>
+    <div data-note="B" class="key white"></div>
+  </div>
+
+  <audio id="C" src="notes/C_sine.mp3"></audio>
+  <audio id="Db" src="notes/Db_sine.mp3"></audio>
+  <audio id="D" src="notes/D_sine.mp3"></audio>
+  <audio id="Eb" src="notes/Eb_sine.mp3"></audio>
+  <audio id="E" src="notes/E_sine.mp3"></audio>
+  <audio id="F" src="notes/F_sine.mp3"></audio>
+  <audio id="Gb" src="notes/Gb_sine.mp3"></audio>
+  <audio id="G" src="notes/G_sine.mp3"></audio>
+  <audio id="Ab" src="notes/Ab_sine.mp3"></audio>
+  <audio id="A" src="notes/A_sine.mp3"></audio>
+  <audio id="Bb" src="notes/Bb_sine.mp3"></audio>
+  <audio id="B" src="notes/B_sine.mp3"></audio> 
+
+  <form action = "index.html"> <input type = "submit" value = "Go Back"/></form>
+  
+
+
+  <script>  
+    const WHITE_KEYS = ['q', 'w', 'e', 'r', 't', 'y', 'u', ]
+    const BLACK_KEYS = ['1', '2', '3', '4', '5']
+    
+    const keys = document.querySelectorAll('.key')
+    const whiteKeys = document.querySelectorAll('.key.white')
+    const blackKeys = document.querySelectorAll('.key.black')
+    
+    keys.forEach(key => {
+      key.addEventListener('click', () => playNote(key))
+    })
+    
+    document.addEventListener('keydown', e => {
+      if (e.repeat) return
+      const key = e.key
+      const whiteKeyIndex = WHITE_KEYS.indexOf(key)
+      const blackKeyIndex = BLACK_KEYS.indexOf(key)
+    
+      if (whiteKeyIndex > -1) playNote(whiteKeys[whiteKeyIndex])
+      if (blackKeyIndex > -1) playNote(blackKeys[blackKeyIndex])
+    })
+    
+    function playNote(key) {
+      const noteAudio = document.getElementById(key.dataset.note)
+      noteAudio.currentTime = 0
+      noteAudio.play()
+      key.classList.add('active')
+      noteAudio.addEventListener('ended', () => {
+        key.classList.remove('active')
+      })
+    }
+    </script>
+</body>
+</html>
